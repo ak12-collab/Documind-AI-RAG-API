@@ -1,310 +1,213 @@
-\# AI Knowledge Retrieval API (RAG API)
-
-
-
-An AI-powered Retrieval-Augmented Generation (RAG) backend built using FastAPI, ChromaDB, Ollama, and semantic embeddings.
-
-
-
-This project enables users to upload PDFs, generate embeddings, perform semantic vector search, and receive context-aware AI responses using local LLM inference.
-
-
-
-\---
-
-
-
-\# Features
-
-
-
-\* FastAPI backend API
-
-\* Local LLM inference using Ollama
-
-\* ChromaDB vector database
-
-\* Semantic embeddings using nomic-embed-text
-
-\* PDF upload and ingestion
-
-\* Automatic chunking
-
-\* Vector similarity search
-
-\* Metadata filtering
-
-\* Context-aware AI responses
-
-\* Modular backend architecture
-
-
-
-\---
-
-
-
-\# Architecture
-
-
-
-User Query
-
-↓
-
-FastAPI Endpoint
-
-↓
-
-Embedding Model
-
-↓
-
-ChromaDB Vector Search
-
-↓
-
-Context Retrieval
-
-↓
-
-Prompt Augmentation
-
-↓
-
-LLM Response
-
-
-
-\---
-
-
-
-\# Tech Stack
-
-
-
-\* Python
-
-\* FastAPI
-
-\* Ollama
-
-\* ChromaDB
-
-\* PyMuPDF
-
-\* Uvicorn
-
-\* Mistral
-
-\* nomic-embed-text
-
-
-
-\---
-
-
-
-\# Folder Structure
-
-
-
+````markdown
+# 🚀 AI Knowledge Retrieval API (RAG API)
+
+An advanced **Retrieval-Augmented Generation (RAG)** backend engineered using **FastAPI, ChromaDB, Ollama, and semantic embeddings**.
+
+This system enables users to upload PDF documents, generate vector embeddings, perform semantic similarity search, and receive accurate, context-aware AI-generated responses using local LLM inference pipelines.
+
+---
+
+# ✨ Features
+
+✅ FastAPI-powered REST API  
+✅ Local LLM inference using Ollama  
+✅ ChromaDB vector database integration  
+✅ Semantic embeddings with `nomic-embed-text`  
+✅ PDF upload and ingestion pipeline  
+✅ Intelligent text chunking  
+✅ High-performance vector similarity search  
+✅ Metadata-based document filtering  
+✅ Context-aware AI response generation  
+✅ Modular and scalable backend architecture  
+
+---
+
+# 🧠 System Architecture
+
+```text
+👤 User Query
+        │
+        ▼
+⚡ FastAPI Endpoint
+        │
+        ▼
+🧩 Embedding Model
+        │
+        ▼
+🗂️ ChromaDB Vector Search
+        │
+        ▼
+📚 Context Retrieval
+        │
+        ▼
+📝 Prompt Augmentation
+        │
+        ▼
+🤖 LLM Response Generation
+```
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| 🐍 Python | Core backend language |
+| ⚡ FastAPI | API framework |
+| 🧠 Ollama | Local LLM inference |
+| 🗂️ ChromaDB | Vector database |
+| 📄 PyMuPDF | PDF text extraction |
+| 🚀 Uvicorn | ASGI server |
+| 🤖 Mistral | Large Language Model |
+| 🔍 nomic-embed-text | Embedding model |
+
+---
+
+# 📁 Project Structure
+
+```bash
 rag-api/
-
 │
-
 ├── app/
-
 │   ├── routes/
-
 │   ├── services/
-
 │   ├── utils/
-
 │   └── config/
-
 │
-
 ├── uploads/
-
-├── chroma\_db/
-
+├── chroma_db/
 ├── requirements.txt
-
 └── README.md
+```
 
+---
 
+# 🔌 API Endpoints
 
-\---
+## 📤 Upload PDF
 
+### `POST /upload`
 
+Uploads PDF documents, extracts text, generates semantic embeddings, and stores vector data inside ChromaDB.
 
-\# API Endpoints
+---
 
+## 💬 Ask Questions
 
+### `GET /ask`
 
-\## Upload PDF
+Retrieves relevant document chunks using semantic vector search and generates grounded AI responses.
 
+### Example Request
 
+```bash
+/ask?question=Summarize the uploaded PDF&source=resume
+```
 
-POST /upload
+---
 
+# ⚙️ Setup Instructions
 
+## 1️⃣ Clone Repository
 
-Uploads PDF documents, extracts text, generates embeddings, and stores vectors in ChromaDB.
-
-
-
-\---
-
-
-
-\## Ask Questions
-
-
-
-GET /ask
-
-
-
-Retrieves relevant chunks using semantic search and generates grounded AI responses.
-
-
-
-Example:
-
-
-
-/ask?question=Summarize the uploaded PDF\&source=resume
-
-
-
-\---
-
-
-
-\# Setup Instructions
-
-
-
-\## Clone Repository
-
-
-
-git clone <your-repo-url>
-
-
+```bash
+git clone https://github.com/your-username/rag-api.git
 
 cd rag-api
+```
 
+---
 
+## 2️⃣ Create Virtual Environment
 
-\---
-
-
-
-\## Create Virtual Environment
-
-
-
+```bash
 python -m venv venv
 
+.\venv\Scripts\Activate.ps1
+```
 
+---
 
-.\\venv\\Scripts\\Activate.ps1
+## 3️⃣ Install Dependencies
 
-
-
-\---
-
-
-
-\## Install Dependencies
-
-
-
+```bash
 pip install -r requirements.txt
+```
 
+---
 
+## 4️⃣ Pull Ollama Models
 
-\---
-
-
-
-\## Pull Ollama Models
-
-
-
+```bash
 ollama pull mistral
 
-
-
 ollama pull nomic-embed-text
+```
 
+---
 
+## 5️⃣ Run Application
 
-\---
-
-
-
-\## Run Application
-
-
-
+```bash
 uvicorn app.main:app --reload
+```
 
+---
 
+# 📚 Swagger API Documentation
 
-\---
-
-
-
-\# Swagger API Docs
-
-
-
+```bash
 http://127.0.0.1:8000/docs
+```
 
+---
 
+# 🚀 Future Enhancements
 
-\---
+🔹 Advanced chunking strategies  
+🔹 Streaming AI responses  
+🔹 Multi-document semantic querying  
+🔹 Authentication & authorization  
+🔹 Dockerized deployment pipeline  
+🔹 Qdrant vector database support  
+🔹 Hybrid search implementation  
+🔹 Production monitoring & observability  
 
+---
 
+# 💼 Resume Highlights
 
-\# Future Improvements
+✅ Built a production-style Retrieval-Augmented Generation (RAG) API using FastAPI, ChromaDB, and Ollama.  
 
+✅ Implemented PDF ingestion pipelines, semantic embeddings, vector similarity search, and grounded AI response workflows.  
 
+✅ Designed a modular backend architecture with reusable service layers, API routes, and scalable retrieval pipelines.  
 
-\* Better chunking strategies
+✅ Integrated local LLM inference using Mistral with semantic retrieval workflows for context-aware AI interactions.  
 
-\* Streaming responses
+✅ Developed an end-to-end AI knowledge retrieval system optimized for scalable document intelligence applications.  
 
-\* Multi-document querying
+---
 
-\* Authentication
+# 🧩 Core Capabilities
 
-\* Docker deployment
+```text
+📄 PDF Processing
+🔍 Semantic Search
+🧠 AI Question Answering
+⚡ Local LLM Inference
+🗂️ Vector Database Retrieval
+🚀 FastAPI Backend Services
+```
 
-\* Qdrant vector database support
+---
 
+# 📌 Use Cases
 
-
-\---
-
-
-
-\# Resume Highlights
-
-
-
-\* Built a production-style Retrieval-Augmented Generation (RAG) API using FastAPI, ChromaDB, and Ollama.
-
-\* Implemented PDF ingestion, semantic embeddings, vector similarity search, and grounded AI responses.
-
-\* Designed modular backend architecture with reusable service and routing layers.
-
-\* Integrated local LLM inference pipelines using Mistral and semantic retrieval workflows.
-
-
-
+💡 AI-powered document assistants  
+💡 Enterprise knowledge retrieval systems  
+💡 Resume and profile analyzers  
+💡 Research paper summarization  
+💡 Internal company knowledge bots  
+💡 Offline/private AI document querying systems  
+````
