@@ -1,0 +1,13 @@
+My name is Akky.
+
+I'm learning FastAPI, RAG systems, AI engineering, and cloud computing.
+
+My goal is to become an AI engineer and backend developer.
+
+I enjoy building APIs, local AI systems, and automation projects.
+
+I have experience with Python, JavaScript, and software engineering.
+
+I'm currently building a Retrieval-Augmented Generation API using FastAPI, ChromaDB, and Ollama.
+
+For fun, I enjoy experimenting with local LLMs and developer tools.
